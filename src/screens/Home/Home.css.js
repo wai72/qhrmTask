@@ -8,4 +8,8 @@ export default StyleSheet.create({
     marginTop: 4,
   },
   icon: {width: 20},
+  itemContainer: {
+    flex: 1,
+    margin: 8,
+  },
 });

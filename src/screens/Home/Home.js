@@ -62,7 +62,7 @@ const Home = ({navigation, ...props}) => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <View style={{flex: 1, margin: 8}}>
+        <View style={styles.itemContainer}>
           <Header
             topmenuList={configs.topmenu}
             onPressHeader={item => {

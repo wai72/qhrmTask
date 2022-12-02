@@ -28,7 +28,5 @@ export default StyleSheet.create({
     // lineHeight: 12,
     fontSize: 14,
   },
-  itemRowSub: {
-    marginTop: 4,
-  },
+  iconview: {flexDirection: 'row', marginTop: 16},
 });

@@ -21,7 +21,7 @@ function BirdhdayList(props) {
             style={s.girlImage}
             resizeMode="contain"
           />
-          <View style={{flexDirection: 'row', marginTop: 16}}>
+          <View style={s.iconview}>
             <Ionicons
               size={20}
               name={'star'}
