@@ -42,7 +42,7 @@ const Home = ({navigation, ...props}) => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <View style={{flex: 1}}>
+        <View style={{flex: 1, margin: 8}}>
           <Header topmenuList={topmenuList} />
           <View
             style={{

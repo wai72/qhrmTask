@@ -11,9 +11,13 @@ import styles from './Header.css';
 const Header = ({style, iconColor = '#000', topmenulist, onPressHeader}) => {
   return (
     <View style={styles.container}>
-      {configs.topmenu.map((item, index) => {
+      {configs.topmenu?.map((item, index) => {
         return (
-          <TouchableOpacity style={{flex: 1}} onPress={onPressHeader}>
+          <TouchableOpacity
+            style={{flex: 1}}
+            onPress={item => {
+              onPressHeader(item);
+            }}>
             <Ionicons
               size={ICON_SIZE}
               name={item.iconName}

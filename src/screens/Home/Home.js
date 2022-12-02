@@ -20,6 +20,10 @@ import {
 import {useSelector, useDispatch} from 'react-redux';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Header from '../../components/Header';
+import TitleTextView from '../../components/TitleTextView';
+import BirthdayList from '../../components/BirthdayList';
+import HolidayList from '../../components/HolidayList';
+import ProfileView from '../../components/ProfileView';
 import {configs} from '../../utils/constants';
 import DynamicTabView from 'react-native-dynamic-tab-view';
 import styles from './Home.css';
@@ -45,8 +49,9 @@ const Home = ({navigation, ...props}) => {
       />
     );
   };
-  const onChangeColor = () => {
-    setViewColor(viewColor == 'yellow' ? 'red' : 'yellow');
+  const onChangeColor = item => {
+    // setViewColor(viewColor == 'yellow' ? 'red' : 'yellow');
+    setViewColor(item.bgcolor);
   };
 
   const onChangeTab = index => {};
@@ -57,21 +62,25 @@ const Home = ({navigation, ...props}) => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <View style={{flex: 1}}>
-          <Header topmenuList={topmenuList} onPressHeader={onChangeColor} />
-          <View style={[styles, {backgroundColor: viewColor}]}>
-            <View
-              style={{
-                flexDirection: 'row',
-                height: 50,
-                backgroundColor: configs.colors.lightGray2,
-              }}>
-              <Text>My Dashboard</Text>
-              <Text>Attendance Status</Text>
-            </View>
-            {/* <Text style={{color: '#fff', textAlign: 'center'}}> Home </Text> */}
-          </View>
+        <View style={{flex: 1, margin: 8}}>
+          <Header
+            topmenuList={configs.topmenu}
+            onPressHeader={item => {
+              onChangeColor(item);
+            }}
+          />
+          <View style={[styles, {backgroundColor: viewColor}]}></View>
         </View>
+        <TitleTextView text1={'My Dashboard'} text2={'Attendence Status'} />
+        <ProfileView />
+        <TitleTextView text1={'Birthday'} text2={'Work Anniversity'} />
+        <BirthdayList />
+        <BirthdayList />
+        <BirthdayList />
+        <TitleTextView text1={'Holiday'} />
+        <HolidayList />
+        <HolidayList />
+        <HolidayList />
         {/* <View
           style={{
             flex: 1,

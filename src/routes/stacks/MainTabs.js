@@ -17,6 +17,19 @@ const options = {
   gestureEnabled: false,
 };
 
+const tabParams = {
+  Home: {
+    renderIcon: color => (
+      <MaterialCommunityIcons name="home-outline" size={24} color={color} />
+    ),
+  },
+  Payroll: {
+    renderIcon: color => (
+      <MaterialCommunityIcons name="alpha-p-circle" size={24} color={color} />
+    ),
+  },
+};
+
 const MainTabs = ({navigation}) => {
   const bottommenuList = useSelector(state => state.home?.bottommenuList);
 
@@ -26,11 +39,11 @@ const MainTabs = ({navigation}) => {
   ];
 
   const _renderItem = (item, index) => {
-    console.log('renderItem', index);
     return (
-      <View
-        key={item['key']}
-        style={{backgroundColor: item['color'], flex: 1}}
+      <MaterialCommunityIcons
+        size={ICON_SIZE}
+        name={item.iconName}
+        style={[{color: configs.colors.lightGray}]}
       />
     );
   };
@@ -47,10 +60,10 @@ const MainTabs = ({navigation}) => {
           /> */}
       <Tab.Navigator
         screenOptions={({route}) => ({
-          // tabBarIcon: ({ focused, color }) => {
-          //   const { renderIcon } = tabParams[route.name] || {};
-          //   return renderIcon ? renderIcon(color) : null;
-          // },
+          tabBarIcon: ({focused, color}) => {
+            const {renderIcon} = tabParams[route.name] || {};
+            return renderIcon ? renderIcon(color) : null;
+          },
           tabBarActiveTintColor: configs.colors.primary,
           tabBarInactiveTintColor: configs.colors.primaryTint,
           tabBarStyle: {

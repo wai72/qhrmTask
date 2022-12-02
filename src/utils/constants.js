@@ -22,6 +22,7 @@ export const configs = {
     white: '#FFFFFF',
     lightGray2: '#DFDFE1',
     lightGray: '#ABABB0',
+    green: '#091',
 
     black: '#000000',
   },
